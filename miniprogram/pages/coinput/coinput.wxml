@@ -1,0 +1,18 @@
+<!--pages/coinput/coinput.wxml-->
+
+<view class="section">
+  <view class="title">
+    {{question.title}}
+  </view>
+  <image mode="aspectFill" class="img" src="{{question.img}}"></image>
+  <view class="weui-cells weui-cells_after-title">
+    <radio-group>
+      <label wx:for="{{options}}" class="weui-cell weui-check__label">
+        <view class="weu__hd">
+          <radio value="{{item}}" checked=""/>
+        </view>
+        <view class="weui__bd">{{item}}</view>
+      </label>
+    </radio-group>
+  </view>
+</view>

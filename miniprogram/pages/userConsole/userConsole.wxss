@@ -1,0 +1,3 @@
+/* pages/userConsole/userConsole.wxss */
+
+@import "../../styles/guide.wxss";

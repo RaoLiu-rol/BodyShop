@@ -1,0 +1,28 @@
+<!--index.wxml-->
+<view class="head">
+  <swiper indicator indicator-dots autoplay circular interval="5000">
+    <swiper-item> <image mode="widthFix" src="../../images/1.jpg" /> </swiper-item>
+    <swiper-item> <image mode="widthFix" src="../../images/2.jpg" /> </swiper-item>
+    <swiper-item> <image mode="widthFix" src="../../images/3.jpg" /> </swiper-item>
+    <swiper-item> <image mode="widthFix" src="../../images/4.jpg" /> </swiper-item>
+  </swiper>
+</view>
+
+<view class="container">
+
+
+  <!-- 夹具定位销 -->
+  <view class="uploader">
+    <navigator url="../fixture/fixture" open-type="navigate" class="uploader-text">
+      <text>夹具定位销管理</text>
+    </navigator>
+  </view>
+
+  <!-- 操作数据库 -->
+  <view class="uploader">
+    <navigator url="../databaseGuide/databaseGuide" open-type="navigate" class="uploader-text">
+      <text>前端操作数据库</text>
+    </navigator>
+  </view>
+
+</view>

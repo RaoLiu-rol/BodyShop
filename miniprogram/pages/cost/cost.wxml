@@ -1,0 +1,6 @@
+<!--pages/cost/cost.wxml-->
+<view>
+    <navigator url="../coinput/coinput" open-type="navigate" class="uploader-text">
+      <text>一次性耗材录入</text>
+    </navigator>
+</view>

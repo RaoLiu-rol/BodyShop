@@ -1,0 +1,57 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+
+ <!--勾选车型-->
+    <view class="section section_gap">
+      <view class="section__title">车型：\n</view>
+      <radio-group name="car-type">
+        <label><radio value="G7"/>F11</label>
+        <label><radio value="W66"/>W66</label>
+        <label><radio value="W77"/>W77</label>
+        <label><radio value="SPV"/>SPV</label>
+        <label><radio value="MEB-6"/>VW316/6</label>
+      </radio-group>
+    </view>
+
+ <!--勾选总成类型-->
+    <view class="section section_gap">
+      <view class="section__title">测量总成：\n</view>
+      <radio-group name="part-type">
+        <label><radio value="FK"/>前盖</label>
+        <label><radio value="HK"/>后盖</label>
+        <label><radio value="LF"/>左前门</label>
+        <label><radio value="RF"/>右前门</label>
+        <label><radio value="LR"/>左后门</label>
+        <label><radio value="RR"/>右后门</label>
+      </radio-group>
+    </view>
+
+ <!--输入钢印号-->
+    <view class="section">
+      <view class="section__title">输入钢印号：\n</view>
+      <input class="input_box" name="id-code" placeholder="please input here" type="number" maxlength="8" />
+    </view>
+
+ <!--选择检测轮次-->
+    <view class="section" style="height: 100rpx">
+      <picker bindchange="bindPickerChange" name="check-round" value="{{index}}" range="{{array}}">
+        <view class="picker">
+          当前检测轮次：
+        </view>
+        <view>
+          {{array[index]}}
+        </view>
+      </picker>
+    </view>
+
+ <!--加入备注信息--> 
+    <view class="section">
+      <view class="section__title">备注（如有需要）：\n</view>
+      <input class="input_box" name="detail" placeholder="please input here" type="text" />
+    </view>
+
+ <!--建立”提交“和”重置“按钮-->
+    <view class="btn-area">
+      <button formType="submit" style="background-color:#09bb07; color:white; margin-top: 40rpx;">提交</button>
+      <button formType="reset" style="background-color:#FFFFFF; margin-top: 20rpx;">重置</button>
+    </view>
+</form>

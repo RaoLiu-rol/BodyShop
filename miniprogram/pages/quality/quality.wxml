@@ -1,0 +1,7 @@
+<!--pages/quality/quality.wxml-->
+<view>
+    <navigator url="../qainput/qainput" open-type="navigate" class="uploader-text">
+      <text>门盖尺寸抽检录入</text>
+    </navigator>
+</view>
+  

@@ -1,0 +1,8 @@
+<!--components/record.wxml-->
+<view class="record_box">
+  <slot></slot>
+  <view class="section_box_B">输入间隙：</view>
+  <input class="input_box" name="B_data" placeholder="please input here" type="digit" maxlength="4" />
+  <view class="section_box_S">输入平度：</view>
+  <input class="input_box" name="S_data" placeholder="please input here" type="digit" maxlength="4" />
+</view>

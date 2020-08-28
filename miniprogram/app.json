@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/databaseGuide/databaseGuide",
+    "pages/fixture/fixture",
+    "pages/quality/quality",
+    "pages/cost/cost",
+    "pages/chooseLib/chooseLib",
+    "pages/deployFunctions/deployFunctions",
+    "pages/userConsole/userConsole",
+    "pages/user/user"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#003366",
+    "navigationBarTitleText": "焊装一车间",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#0094ff",
+    "backgroundColor": "#fafafa",
+    "position": "bottom",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "icons/chejian-xi.png",
+        "selectedIconPath": "icons/chejian.png"
+      },
+      {
+        "pagePath": "pages/quality/quality",
+        "text": "质量",
+        "iconPath": "icons/hawconsnotetext.png",
+        "selectedIconPath": "icons/hawconsnotetext1.png"
+      },
+      {
+        "pagePath": "pages/cost/cost",
+        "text": "成本",
+        "iconPath": "icons/chejianguanli.png",
+        "selectedIconPath": "icons/chejiandayin.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "icons/my.png",
+        "selectedIconPath": "icons/myselected.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "useExtendedLib": {
+    "weui": true
+  },
+  "style": "v2"
+}
