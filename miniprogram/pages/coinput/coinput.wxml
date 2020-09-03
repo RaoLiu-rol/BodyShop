@@ -1,5 +1,5 @@
 <!--pages/coinput/coinput.wxml-->
-
+<view class="weui-article" style="font-size:40rpx">{{testName}}</view>
 <view wx:for="{{test}}" wx:key="title" class="section">
   <view class="title">
     {{index+1}}、{{item.title}}
@@ -17,7 +17,7 @@
   </view>
   <view wx:else class="weui-cells weui-cells_after-title">
     <checkbox-group bindchange="getCheckboxChoice" data-idx="{{index}}">
-      <label wx:for="{{item.options}}" wx:for-item="option" class="weui-cell weui-check__label">
+      <label wx:for="{{item.options}}" wx:for-item="option" wx:key="option" class="weui-cell weui-check__label">
         <view class="weui__hd">
           <checkbox value="{{option}}" checked="" />
         </view>
@@ -40,4 +40,4 @@
     </view>
   </view>
 </view>
-<button type="primary">提交</button>
+<button bindtap="sendResult" type="primary">提交</button>
