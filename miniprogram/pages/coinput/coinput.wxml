@@ -1,18 +1,43 @@
 <!--pages/coinput/coinput.wxml-->
 
-<view class="section">
+<view wx:for="{{test}}" wx:key="title" class="section">
   <view class="title">
-    {{question.title}}
+    {{index+1}}、{{item.title}}
   </view>
-  <image mode="aspectFill" class="img" src="{{question.img}}"></image>
-  <view class="weui-cells weui-cells_after-title">
-    <radio-group>
-      <label wx:for="{{options}}" class="weui-cell weui-check__label">
-        <view class="weu__hd">
-          <radio value="{{item}}" checked=""/>
+  <image wx:if="{{item.img}}" mode="aspectFill" class="img" src="{{item.img}}"></image>
+  <view wx:if="{{item.type=='单选题'}}" class="weui-cells weui-cells_after-title">
+    <radio-group bindchange="getRadioChoice" data-idx="{{index}}">
+      <label wx:for="{{item.options}}" wx:for-item="option" wx:key="option" class="weui-cell weui-check__label">
+        <view class="weui__hd">
+          <radio value="{{option}}" checked="" />
         </view>
-        <view class="weui__bd">{{item}}</view>
+        <view class="weui__bd">{{option}}</view>
       </label>
     </radio-group>
   </view>
+  <view wx:else class="weui-cells weui-cells_after-title">
+    <checkbox-group bindchange="getCheckboxChoice" data-idx="{{index}}">
+      <label wx:for="{{item.options}}" wx:for-item="option" class="weui-cell weui-check__label">
+        <view class="weui__hd">
+          <checkbox value="{{option}}" checked="" />
+        </view>
+        <view class="weui__bd">{{option}}</view>
+      </label>
+    </checkbox-group>
+  </view>
 </view>
+<view class="section">
+  <view class="weui-cells__title">请输入你的姓名：{{userName}}</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <input bindinput="getUserName" class="weui-input" placeholder="必填" />
+    </view>
+  </view>
+  <view class="weui-cells__title">请输入你的联系方式：</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <input type="number" maxlength="11" class="weui-input" placeholder="11位手机号码" />
+    </view>
+  </view>
+</view>
+<button type="primary">提交</button>

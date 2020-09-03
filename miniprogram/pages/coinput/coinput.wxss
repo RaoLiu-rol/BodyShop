@@ -6,10 +6,9 @@ page {
 .section {
   background-color: white;
   margin: 30rpx 20rpx 30rpx 20rpx;
-  padding: 20rpx;
+  padding: 22rpx;
   border: black solid 1px;
   border-radius: 30rpx;
-
 }
 
 .title {
@@ -18,6 +17,11 @@ page {
 }
 
 .img {
+  width: 662rpx;
+  height: 420rpx;
+  margin: 0 0;
+}
 
-  margin: 0 10rpx 0 10rpx;
+.form {
+  margin-top: 20rpx;
 }

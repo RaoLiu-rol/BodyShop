@@ -8,7 +8,8 @@
     "pages/chooseLib/chooseLib",
     "pages/deployFunctions/deployFunctions",
     "pages/userConsole/userConsole",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/coinput/coinput"
   ],
   "window": {
     "backgroundTextStyle": "light",
