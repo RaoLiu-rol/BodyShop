@@ -1,5 +1,5 @@
 <!--pages/coinput/coinput.wxml-->
-<view class="weui-article" style="font-size:40rpx">{{testName}}</view>
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
 <view wx:for="{{test}}" wx:key="title" class="section">
   <view class="title">
     {{index+1}}、{{item.title}}
@@ -36,7 +36,7 @@
   <view class="weui-cells__title">请输入你的联系方式：</view>
   <view class="weui-cells weui-cells_after-title">
     <view class="weui-cell weui-cell_input">
-      <input type="number" maxlength="11" class="weui-input" placeholder="11位手机号码" />
+      <input bindinput="getCellPhone" type="number" maxlength="11" class="weui-input" placeholder="11位手机号码" />
     </view>
   </view>
 </view>

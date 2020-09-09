@@ -1,41 +1,32 @@
 <!--pages/fixture/fixture.wxml-->
-<form bindsubmit="formSubmit" bindreset="formReset">
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+<!--输入工位编号-->
+<view class="section">
+	<view class="codeInput1">
+		<view class="section__title">工段：{{section}}</view>
+		<view class="section__title">工位：{{position}}</view>
+	</view>
+</view>
 
- <!--输入定位销编号--> 
-    <view class="codeInput">
-      <view class="codeInput1">
-        <view class="section__title">输入定位销编号：\n</view>
-        <input class="input_box" name="number" placeholder="please input here" type="text" value="{{content}}"/>
-      </view>
-      <button class="button1" bindtap="qrScan">扫描</button>
-      <button class="button2" bindtap="nuSearch">查询</button>
-    </view>
+<!--输入定位销直径-->
+<view wx:for="{{pinData}}" wx:key="id">
+	<view class="section" style="border:{{item.color}} solid 1px">
+		<view class="title">{{index+1}}、{{item.pinName}}\n</view>
+		<view class="weui-cell weui-cells_after-title">标准值： {{item.dmMax}} mm</view>
+		<view class="weui-cell weui-cells_after-title">下限值： {{item.dmMin}} mm</view>
+		<input class="weui-cell weui-cells_after-title" bindinput="dmInput" data-idx="{{index}}" placeholder="请输入定位销实测直径" type="digit" />
+	</view>
+</view>
 
- <!--输入垫片厚度--> 
-    <view class="data">
-      <view class="section_box">
-        <view class="section__title">输入垫片厚度：\n</view>
-        <input class="input_box_mini" name="x" placeholder="X向" type="text" />
-        <input class="input_box_mini" name="y" placeholder="Y向" type="text" />
-        <input class="input_box_mini" name="z" placeholder="Z向" type="text" />
-      </view>
-      <view class="section_box">
-        <view class="section__title">上一轮记录：\n</view>
-        <view class="input_box_mini2" >X向: {{xray}} mm</view>
-        <view class="input_box_mini2">Y向: {{yray}} mm</view>
-        <view class="input_box_mini2">Z向: {{zray}} mm</view>
-      </view>
-    </view>
+<view class="section">
+	<!--输入点检人姓名-->
+	<view class="weui-cell weui-cells_after-title">请输入点检人姓名：</view>
+	<view class="weui-cells weui-cells_after-title">
+		<view class="weui-cell weui-cell_input">
+			<input bindinput="getUserName" class="weui-input" placeholder="必填" />
+		</view>
+	</view>
 
- <!--加入备注信息--> 
-    <view class="section">
-      <view class="section__title">调整原因描述：\n</view>
-      <input class="input_box" name="detail" placeholder="please input here" type="text" />
-    </view>
-
- <!--建立”提交“和”重置“按钮-->
-    <view class="btn-area">
-      <button formType="submit" style="background-color:#09bb07; color:white; margin-top: 40rpx;">提交</button>
-      <button formType="reset" style="background-color:#FFFFFF; margin-top: 20rpx;">重置</button>
-    </view>
-</form>
+	<!--建立”提交“和”重置“按钮-->
+	<button bindtap="sendResult" type="primary">提交</button>
+</view>

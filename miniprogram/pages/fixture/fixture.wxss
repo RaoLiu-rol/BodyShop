@@ -1,37 +1,27 @@
 /* pages/fixture/fixture.wxss */
-.data {
-  display: flex ;
+page {
+  background-color: #eeeeee;
+}
+
+.section {
   background-color: white;
+  margin: 30rpx 20rpx 30rpx 20rpx;
+  padding: 22rpx;
+  border: black solid 1px;
+  border-radius: 30rpx;
 }
-.section_box{
-  margin-left: 20rpx;
-  margin-top: 10rpx;
-  margin-bottom: 10rpx;
-  flex: 60%;
+
+.title {
+  font-size: 40rpx;
+  margin: 12rpx 0;
 }
-.input_box_mini{
+
+.img {
+  width: 662rpx;
+  height: 420rpx;
+  margin: 0 0;
+}
+
+.form {
   margin-top: 20rpx;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-.input_box_mini2{
-  margin-left: 20rpx;
-  margin-top: 26rpx;
-}
-.codeInput{
-  display: flex;
-  margin-top: 30rpx;
-  margin-bottom: 30rpx;
-}
-.codeInput1{
-  flex:50%
-}
-.button1{
-  background-color:grey;
-  color:white;
-  flex: 20%;
-}
-.button2{
-  background-color: #09bb07;
-  color:white;
-  flex: 20%;
 }
