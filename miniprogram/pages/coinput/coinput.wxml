@@ -1,43 +1,52 @@
 <!--pages/coinput/coinput.wxml-->
 <mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
-<view wx:for="{{test}}" wx:key="title" class="section">
-  <view class="title">
-    {{index+1}}、{{item.title}}
-  </view>
-  <image wx:if="{{item.img}}" mode="aspectFill" class="img" src="{{item.img}}"></image>
-  <view wx:if="{{item.type=='单选题'}}" class="weui-cells weui-cells_after-title">
-    <radio-group bindchange="getRadioChoice" data-idx="{{index}}">
-      <label wx:for="{{item.options}}" wx:for-item="option" wx:key="option" class="weui-cell weui-check__label">
-        <view class="weui__hd">
-          <radio value="{{option}}" checked="" />
-        </view>
-        <view class="weui__bd">{{option}}</view>
-      </label>
-    </radio-group>
-  </view>
-  <view wx:else class="weui-cells weui-cells_after-title">
-    <checkbox-group bindchange="getCheckboxChoice" data-idx="{{index}}">
-      <label wx:for="{{item.options}}" wx:for-item="option" wx:key="option" class="weui-cell weui-check__label">
-        <view class="weui__hd">
-          <checkbox value="{{option}}" checked="" />
-        </view>
-        <view class="weui__bd">{{option}}</view>
-      </label>
-    </checkbox-group>
-  </view>
+<view wx:if="{{status=='未加载'}}" class="startPage">
+	<picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+		<button type="primary">请选择问卷调查</button>
+	</picker>
 </view>
-<view class="section">
-  <view class="weui-cells__title">请输入你的姓名：{{userName}}</view>
-  <view class="weui-cells weui-cells_after-title">
-    <view class="weui-cell weui-cell_input">
-      <input bindinput="getUserName" class="weui-input" placeholder="必填" />
-    </view>
-  </view>
-  <view class="weui-cells__title">请输入你的联系方式：</view>
-  <view class="weui-cells weui-cells_after-title">
-    <view class="weui-cell weui-cell_input">
-      <input bindinput="getCellPhone" type="number" maxlength="11" class="weui-input" placeholder="11位手机号码" />
-    </view>
-  </view>
+<view wx:if="{{status=='填报中'||status=='填报完成'}}" wx:for="{{test}}" wx:key="title" class="section">
+	<view class="title">
+		{{index+1}}、{{item.title}}
+	</view>
+	<image wx:if="{{item.img}}" bindtap="previewImage" data-url="{{item.img}}" mode="aspectFill" class="img" src="{{item.img}}"></image>
+	<view wx:if="{{item.type=='单选题'}}" class="weui-cells weui-cells_after-title">
+		<radio-group bindchange="getRadioChoice" data-idx="{{index}}">
+			<label wx:for="{{item.options}}" wx:for-item="option" wx:key="option" class="weui-cell weui-check__label">
+				<view class="weui__hd">
+					<radio wx:if='{{status=="填报中"}}' value="{{option}}" checked="" />
+				</view>
+				<view class="weui__bd" style="width:100%">{{option}}
+        <progress wx:if='{{status=="填报完成"}}' style="width:100%" percent="{{item.statics[option]/count*100}}" stroke-width="3"/>
+        </view>
+			</label>
+		</radio-group>
+	</view>
+	<view wx:else class="weui-cells weui-cells_after-title">
+		<checkbox-group bindchange="getCheckboxChoice" data-idx="{{index}}">
+			<label wx:for="{{item.options}}" wx:for-item="option" wx:key="option" class="weui-cell weui-check__label">
+				<view class="weui__hd">
+					<checkbox wx:if='{{status=="填报中"}}' value="{{option}}" checked="" />
+				</view>
+				<view class="weui__bd" style="width:100%">{{option}}
+        <progress wx:if='{{status=="填报完成"}}' style="width:100%" percent="{{item.statics[option]/count*100}}" stroke-width="3"/>
+        </view>
+			</label>
+		</checkbox-group>
+	</view>
 </view>
-<button bindtap="sendResult" type="primary">提交</button>
+<view wx:if="{{status=='填报中'}}" class="section">
+	<view class="weui-cells__title">请输入你的姓名：{{userName}}</view>
+	<view class="weui-cells weui-cells_after-title">
+		<view class="weui-cell weui-cell_input">
+			<input bindinput="getUserName" class="weui-input" placeholder="必填" />
+		</view>
+	</view>
+	<view class="weui-cells__title">请输入你的联系方式：</view>
+	<view class="weui-cells weui-cells_after-title">
+		<view class="weui-cell weui-cell_input">
+			<input bindinput="getCellPhone" type="number" maxlength="11" class="weui-input" placeholder="11位手机号码" />
+		</view>
+	</view>
+  <button bindtap="sendResult" style="margin-top:50rpx" type="primary">提交</button>
+</view>

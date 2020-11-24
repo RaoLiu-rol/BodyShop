@@ -1,6 +1,7 @@
 /* pages/coinput/coinput.wxss */
 page {
   background-color: #eeeeee;
+  height: 100%;
 }
 
 .section {
@@ -24,4 +25,10 @@ page {
 
 .form {
   margin-top: 20rpx;
+}
+
+.startPage{
+  background-color: white;
+  height: 100%;
+  padding-top: 100%;
 }

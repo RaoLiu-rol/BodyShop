@@ -1,14 +1,13 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/databaseGuide/databaseGuide",
     "pages/fixture/fixture",
     "pages/quality/quality",
     "pages/cost/cost",
     "pages/chooseLib/chooseLib",
-    "pages/deployFunctions/deployFunctions",
     "pages/userConsole/userConsole",
     "pages/user/user",
+    "pages/show/show",
     "pages/coinput/coinput"
   ],
   "window": {

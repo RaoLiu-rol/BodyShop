@@ -2,23 +2,31 @@
 Page({
 
   data: {
+    status: "未加载",
     testName: "",
     userName: "",
     test: [],
     error: '',
-    cellPhone: '',
+    cellphone: '',
+    count: 0,
+    array: ['工装统计', '汽车售后问卷调查', '互联网兴趣调查']
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (options.id) {
+      this.refreshData(options.id)
+    }
+  },
+  refreshData: function (surveyID) {
     wx.showLoading({
       title: '加载中',
     })
     var me = this;
     wx.request({
-      url: 'https://kaopu.tech/getSurvey?surveyID=1', //仅为示例，并非真实的接口地址
+      url: 'https://kaopu.tech/getSurvey?surveyID=' + surveyID, //仅为示例，并非真实的接口地址
       success(res) {
         if (res.data.errCode == 0) {
           var arr = res.data.data;
@@ -29,18 +37,21 @@ Page({
             test: arr
           });
           me.setData({
-            testName: res.data.testName
+            testName: res.data.testName,
+            surveyID: surveyID
           })
         }
         wx.setNavigationBarTitle({
           title: me.data.testName,
+        });
+        me.setData({
+          status: "填报中"
         })
       }
     })
     setTimeout(function () {
       wx.hideLoading()
     }, 2000)
-
   },
   getUserName: function (e) {
     this.setData({
@@ -49,7 +60,7 @@ Page({
   },
   getCellPhone: function (e) {
     this.setData({
-      cellPhone: e.detail.value
+      cellphone: e.detail.value
     })
   },
   getRadioChoice: function (e) {
@@ -73,7 +84,9 @@ Page({
     return userChecked
   },
   sendResult: function () {
-    this.setData({error:""})
+    this.setData({
+      error: ""
+    })
     if (this.getUserChecked() < this.data.test.length) {
       this.setData({
         error: '您还未完成全部提问，暂时不能提交'
@@ -86,75 +99,48 @@ Page({
       })
       return;
     };
-    if (!this.data.cellPhone) {
+    if (!this.data.cellphone) {
       this.setData({
         error: '您还未填写手机号码，暂时不能提交'
       })
       return;
     };
-    if (this.data.cellPhone[0]!='1' || this.data.cellPhone.length!=11) {
+    if (this.data.cellphone[0] != '1' || this.data.cellphone.length != 11) {
       this.setData({
         error: '手机号码格式不正确，请重新检查'
       })
       return;
     }
-    const db = wx.cloud.database()
-    db.collection('question').add({
-      data: this.data,
+    wx.request({
+      url: 'https://kaopu.tech/SubmitSurvey',
+      data: {
+        test: this.data.test,
+        userName: this.data.userName,
+        cellphone: this.data.cellphone
+      },
       success: res => {
-        wx.showToast({
-          title: '新增记录成功',
+        this.setData({
+          test: res.data.test,
+          count: res.data.count,
+          status: "填报完成"
         })
       }
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  bindPickerChange: function (e) {
+    this.refreshData(e.detail.value)
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  previewImage: function (e) {
+    wx.previewImage({
+      urls: [e.target.dataset.url],
+      current: 'current',
+    })
   },
+  onShareAppMessage: function (res) {
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    return {
+      title: this.data.testName || "信息统计助手",
+      path: "/pages/coinput/coinput?id=" + this.data.surveyID
+    }
   }
 })
