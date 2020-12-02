@@ -1,0 +1,6 @@
+<mp-cells>
+  <mp-cell title="手机号码：">
+    <input class="weui-input" value="{{cellphone}}" type="number"  bindinput="onNameChange" />
+  </mp-cell>
+</mp-cells>
+<button type="primary" style="width:90%;margin-top:50px;" bindtap="submit">确定</button>

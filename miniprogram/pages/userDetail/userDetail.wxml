@@ -1,0 +1,16 @@
+<!--pages/login/login.wxml-->
+<mp-cells>
+  <mp-cell title="用户头像">
+    <image slot="footer" src="{{curUser.avatarUrl||'../../images/user-unlogin.png'}}"
+      style="width: 32px; height: 32px;" />
+  </mp-cell>
+  <mp-cell link url="/pages/changeName/changeName?name={{curUser.nickName}}" title="用户名称">
+    <text slot="footer">{{curUser.nickName}}</text>
+  </mp-cell>
+  <mp-cell link  url="/pages/changePhone/changePhone?cellphone={{curUser.cellphone}}" title="手机号码">
+    <text slot="footer">{{curUser.cellphone}}</text>
+  </mp-cell>
+  <mp-cell title="相关权限">
+    <text slot="footer">{{curUser.auth}}</text>
+  </mp-cell>
+</mp-cells>

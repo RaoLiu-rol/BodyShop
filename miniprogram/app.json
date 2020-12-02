@@ -4,11 +4,13 @@
     "pages/fixture/fixture",
     "pages/quality/quality",
     "pages/cost/cost",
-    "pages/chooseLib/chooseLib",
     "pages/userConsole/userConsole",
     "pages/user/user",
     "pages/show/show",
-    "pages/coinput/coinput"
+    "pages/userDetail/userDetail",
+    "pages/coinput/coinput",
+    "pages/changeName/changeName",
+    "pages/changePhone/changePhone"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -51,7 +53,12 @@
   },
   "sitemapLocation": "sitemap.json",
   "useExtendedLib": {
+    "kbone": true,
     "weui": true
+  },
+  "usingComponents": {
+    "mp-cells": "/miniprogram_npm/weui-miniprogram/cells/cells",
+    "mp-cell": "/miniprogram_npm/weui-miniprogram/cell/cell"   
   },
   "style": "v2"
 }

@@ -1,0 +1,7 @@
+<!--pages/changeName/changeName.wxml-->
+<mp-cells>
+  <mp-cell title="用户姓名：">
+    <input class="weui-input" value="{{userName}}" type="text"  bindinput="onNameChange" />
+  </mp-cell>
+</mp-cells>
+<button type="primary" style="width:90%; margin-top:50px;" bindtap="submit">确定</button>
