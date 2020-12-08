@@ -8,7 +8,6 @@ function initChart (canvas, width, height, dpr) {
     devicePixelRatio: dpr // new
   });
   canvas.setChart(chart);
-
   var option = {
     title: {
       text: '定位销磨损情况',
