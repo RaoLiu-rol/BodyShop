@@ -24,7 +24,7 @@ App({
       wx.cloud.database().collection("userInfo").get().then(res=>{
         if(res.errMsg=='collection.get:ok' && res.data.length>0){
           this.globalData.curUser=res.data[0]
-          console.log( this.globalData.curUser)       
+          //console.log( this.globalData.curUser)       
             this.updateFromGlobal()         
         }else{
           wx.switchTab({

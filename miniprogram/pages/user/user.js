@@ -35,7 +35,7 @@ Page({
       getApp().updateFromGlobal()
   },
   onLoad: function (options) {
-    console.log(app.globalData.curUser)
+    //console.log(app.globalData.curUser)
     this.setData({
       curUser: app.globalData.curUser
     })

@@ -1,18 +1,22 @@
 <!--index.wxml-->
-<view class="container">
+<mp-cells>
+	<mp-cell link hover url="/pages/userDetail/userDetail">
+		<image slot="title" src="{{curUser.avatarUrl||'../../images/user-unlogin.png'}}" style="width: 50px; height: 50px; margin-right:8px" />
+		<view>{{curUser.nickName||"未知姓名"}}</view>
+		<view style="font-size: 13px;color: #888888;">{{curUser.empAuth||'普通用户'}}|{{curUser.dept||"未知部门"}}</view>
+	</mp-cell>
+</mp-cells>
 
-  <!-- 用户 openid -->
-  <view class="userinfo">
-    <button 
-      open-type="getUserInfo" 
-      bindgetuserinfo="onGetUserInfo"
-      class="userinfo-avatar"
-      style="background-image: url({{avatarUrl}})"
-      size="default"
-    ></button>
-    <view class="userinfo-nickname-wrapper">
-      <button class="userinfo-nickname" bindtap="onGetOpenid">{{nickName}}</button>
-    </view>
-  </view>
-
-</view>
+<mp-halfScreenDialog show="{{show}}">
+	<view slot="title"> 用户注册 </view>
+	<mp-cell slot="desc">
+		<text style="color:grey" >每个工号仅能注册一次，未经后台登记的工号无法注册</text>
+	</mp-cell>
+	<mp-cell slot="desc" title="工号：">
+		<input class="weui-input" type="number" bindinput="empIdInput" />
+	</mp-cell>
+  <mp-cell slot="desc">
+    <button type="primary" open-type="getUserInfo"
+  bindgetuserinfo="onGetUserInfo" lang="zh_CN">注册</button>
+  </mp-cell>
+</mp-halfScreenDialog>
