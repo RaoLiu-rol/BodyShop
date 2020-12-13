@@ -1,115 +1,113 @@
 {
-	"miniprogramRoot": "miniprogram/",
-	"cloudfunctionRoot": "cloudfunctions/",
-	"setting": {
-		"urlCheck": false,
-		"es6": true,
-		"enhance": true,
-		"postcss": true,
-		"preloadBackgroundData": false,
-		"minified": true,
-		"newFeature": true,
-		"coverView": true,
-		"nodeModules": false,
-		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"uglifyFileName": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"compileHotReLoad": false,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"useIsolateContext": true,
-		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false,
-		"useMultiFrameRuntime": false,
-		"useApiHook": true,
-		"packNpmManually": false,
-		"packNpmRelationList": []
-	},
-	"appid": "wx7de43120f7223493",
-	"projectname": "bs01",
-	"libVersion": "2.8.1",
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "db guide",
-					"pathName": "pages/databaseGuide/databaseGuide",
-					"query": ""
-				},
-				{
-					"id": 1,
-					"name": "夹具定位销管理",
-					"pathName": "pages/fixture/fixture",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 2,
-					"name": "pages/userConsole/userConsole",
-					"pathName": "pages/userConsole/userConsole",
-					"query": "openid = 123",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/qainput/qainput",
-					"pathName": "pages/qainput/qainput",
-					"query": "openid = 123",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "夹具",
-					"pathName": "pages/fixture/fixture",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 5,
-					"name": "pages/coinput/coinput",
-					"pathName": "pages/coinput/coinput",
-					"query": "id=2",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "柱状图",
-					"pathName": "pages/show/show",
-					"query": "",
-					"scene": null
-				}
-			]
-		}
-	}
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": false,
+    "useApiHook": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "userConfirmedBundleSwitch": false,
+    "minifyWXSS": true
+  },
+  "appid": "wx7de43120f7223493",
+  "projectname": "bs01",
+  "libVersion": "2.14.0",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "db guide",
+          "pathName": "pages/databaseGuide/databaseGuide",
+          "query": ""
+        },
+        {
+          "id": 1,
+          "name": "夹具定位销管理",
+          "pathName": "pages/fixture/fixture",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 2,
+          "name": "pages/userConsole/userConsole",
+          "pathName": "pages/userConsole/userConsole",
+          "query": "openid = 123",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/qainput/qainput",
+          "pathName": "pages/qainput/qainput",
+          "query": "openid = 123",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "夹具",
+          "pathName": "pages/fixture/fixture",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 5,
+          "name": "pages/coinput/coinput",
+          "pathName": "pages/coinput/coinput",
+          "query": "id=2",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "柱状图",
+          "pathName": "pages/show/show",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
 }

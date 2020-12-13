@@ -17,5 +17,10 @@
       <text>夹具定位销管理</text>
     </navigator>
   </view>
+    <view class="uploader">
+    <navigator url="../show/show" open-type="navigate" class="uploader-text">
+      <text>夹具定位销记录</text>
+    </navigator>
+  </view>
 
 </view>
